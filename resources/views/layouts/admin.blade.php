@@ -15,11 +15,11 @@
     <div id="app">
         @yield('content')
     </div>
-
+    
     <script type="module">
         $(document).ready(() => {
             if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window
-                    .matchMedia('(prefers-color-scheme: dark)').matches)) {
+            .matchMedia('(prefers-color-scheme: dark)').matches)) {
                 $('html').addClass('dark')
                 $('#light').removeClass('hidden');
                 $('#dark').addClass('hidden');
@@ -28,12 +28,12 @@
                 $('#dark').removeClass('hidden');
                 $('#light').addClass('hidden');
             }
-
+            
             $(document).on('click', '#toggle', function(e) {
                 e.preventDefault()
                 $('#dark').toggleClass('hidden')
                 $('#light').toggleClass('hidden')
-
+                
                 if (localStorage.getItem('color-theme')) {
                     if (localStorage.getItem('color-theme') === 'light') {
                         $('html').addClass('dark')
@@ -42,7 +42,7 @@
                         $('html').removeClass('dark')
                         localStorage.setItem('color-theme', 'light');
                     }
-
+                    
                 } else {
                     if ($('html').hasClass('dark')) {
                         $('#toggle').attr('title', 'Aktifkan Light Mode')

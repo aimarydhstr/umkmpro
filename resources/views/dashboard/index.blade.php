@@ -6,7 +6,7 @@
 
     @include('components.sidenav')
     <main id="main"
-        class="fixed p-5 left-72 right-0 max-sm:-right-72 top-0 bottom-0 overflow-y-auto overflow-x-hidden text-slate-700 dark:text-slate-200 transition-all duration-300">
+        class="fixed p-5 left-0 sm:left-72 right-0 top-0 bottom-0 overflow-y-auto overflow-x-hidden text-slate-700 dark:text-slate-200 transition-all duration-300">
 
         @include('components.pagetitle')
         <div class="block w-full">
@@ -80,8 +80,8 @@
                 <section class="basis-2/3 p-3">
                     <div
                         class="bg-white dark:bg-slate-700 shadow-xl p-3 pb-7 rounded-xl relative overflow-hidden box-border">
-                        <h3 class="p-4 pb-3 uppercase text-sm font-bold">Daftar User</h3>
-                        <p class="mb-6 text-sm px-4">Rekap pendaftaran user hari ini pada Mebelicious</p>
+                        <h3 class="p-4 pb-3 uppercase text-sm font-bold">Daftar Seller</h3>
+                        <p class="mb-6 text-sm px-4">Rekap pendaftaran seller hari ini pada Mebelicious</p>
 
                         <div class="overflow-x-auto relative px-4 mb-5">
                             <table class="w-full text-sm text-left text-slate-600 dark:text-slate-200">

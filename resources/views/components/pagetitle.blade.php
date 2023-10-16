@@ -1,5 +1,5 @@
 <section class="flex items-center px-3 mb-5">
-    <button id="navIcon" title="Tutup Navigasi"
+    <button id="navIcon" title="Tutup Navigasi" 
         class="bg-violet-500 hover:bg-violet-700 active:bg-violet-800 shadow-lg focus:outline-none p-2 rounded-lg block">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
             class="w-6 h-6 text-white">

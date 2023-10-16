@@ -12,10 +12,16 @@ use App\Http\Controllers\CouponUsedController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\StoreController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\TransactionController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/filter', [HomeController::class, 'filter'])->name('filter');
+
+Route::get('/try', function () {
+    return view('try2')->with('title', 'try2');
+});
 
 Route::prefix('shop')->group(function () {
     Route::get('/', [ShopController::class, 'index'])->name('shop');
@@ -23,6 +29,8 @@ Route::prefix('shop')->group(function () {
     Route::get('/product/{slug}', [ShopController::class, 'getproduct'])->name('shop.getproduct');
     Route::get('/category/{slug}', [ShopController::class, 'category'])->name('shop.category');
     Route::get('/tag/{slug}', [ShopController::class, 'tag'])->name('shop.tag');
+
+    Route::get('/store/{slug}', [StoreController::class, 'show'])->name('store.show');
     
     Route::prefix('profile')->middleware('auth')->group(function () {
         Route::get('/', [ShopController::class, 'profile'])->name('shop.profile');
@@ -70,9 +78,10 @@ Route::middleware('guest')->group(function () {
     });
 });
 
-Route::middleware(['auth', 'level:1'])->group(function () {
+Route::middleware(['auth', 'level:1,3'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/report', [DashboardController::class, 'report'])->name('report');
 
         Route::prefix('category')->group(function () {
             Route::get('/', [CategoryController::class, 'index'])->name('category');

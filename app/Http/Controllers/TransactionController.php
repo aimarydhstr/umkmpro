@@ -55,7 +55,7 @@ class TransactionController extends Controller
         ]);
 
         $auth = Auth::user();
-        
+
         $image = $request->file('pay_image');
         $images = date('YmdHi') . $image->getClientOriginalName();
         $image->move(public_path('img/transaction'), $images);
@@ -79,7 +79,9 @@ class TransactionController extends Controller
             'status_id' => 1,
         ]);
 
-        $coupon = CouponUsed::where('user_id', $auth->id)->latest()->first()->update(['is_used' => 1]);
+        if ($request->coupon_used_id) {
+            $coupon = CouponUsed::where('user_id', $auth->id)->latest()->first()->update(['is_used' => 1]);
+        }
 
         $carts = Cart::where('user_id', $auth->id)->get();
 
@@ -110,11 +112,11 @@ class TransactionController extends Controller
         $transaction = Transaction::with('order', 'order.product')->findOrFail($id);
         $transaction->update(['status_id' => 5]);
 
-        foreach($transaction->order as $order){
+        foreach ($transaction->order as $order) {
             $product = Product::findOrFail($order->product->id);
             $product->update(['qty' => $product->qty + $order->qty]);
         }
-        
+
 
         if ($auth->role_id == 1) {
             Session::flash('success', 'Transaksi berhasil dibatalkan!');

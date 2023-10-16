@@ -20,8 +20,8 @@ return new class extends Migration
             $table->bigInteger('role_id')->unsigned()->index()->nullable();
             $table->string('gender', 15);
             $table->string('photo');
-            $table->string('province', 50);
-            $table->string('city', 50);
+            $table->bigInteger('province_id')->unsigned()->index()->nullable();
+            $table->bigInteger('city_id')->unsigned()->index()->nullable();
             $table->string('address');
             $table->string('postcode', 20);
             $table->string('phone', 15);
@@ -29,6 +29,8 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('province_id')->references('id')->on('provinces')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('set null')->onUpdate('cascade');
         });
     }
 

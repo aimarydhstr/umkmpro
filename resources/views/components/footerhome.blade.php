@@ -3,11 +3,10 @@
         <div class="row px-2 justify-content-between">
             <div class="col-lg-4 col-md-12 col-sm-6 px-lg-0 px-3 py-3" id="tentang">
                 <h2>
-                    <a href="#"><span>Me</span>be<span>lic</span>ious</a>
+                    <a href="#"><span>U</span>M<span>K</span>M<span style="font-size: 28px;">Pro</span></a>
                 </h2>
-                <p>
-                    Website toko online yang menyediakan berbagai furniture rumah
-                    dengan desain yang menarik dan inovatif
+                <p class="pe-2">
+                Bergabunglah dengan kami dalam membangun komunitas belanja yang kuat dan mendukung pertumbuhan UMKM Lokal.
                 </p>
                 <div class="sosmed d-flex">
                     <a href="#" class="p-2 rounded">
@@ -87,19 +86,18 @@
                 <nav>
                     <ul class="m-0 p-0">
                         <li><a href="#">Aimar Yudhistira</a></li>
-                        <li><a href="#">Ali Sya'bana</a></li>
-                        <li><a href="#">Estu Prayoga</a></li>
-                        <li><a href="#">Yulin Penggu</a></li>
+                        <li><a href="#">Ilham Sidik Saksena</a></li>
+                        <li><a href="#">Lutviana</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
         <div class="copyright d-flex p-0 m-0 justify-content-between pt-3 mt-5 flex-wrap">
             <p>
-                Copyright &copy;2023 <a class="home" href="#">Mebelicious</a>. All
+                Copyright &copy;2023 <a class="home" href="#">UMKMPro</a>. All
                 Right Reserved
             </p>
-            <p>Made with Bootstrap</p>
+            <p>Made with Love</p>
         </div>
     </div>
 </footer>

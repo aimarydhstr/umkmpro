@@ -2,7 +2,7 @@
     <div class="container-lg">
         <h3 class="text-center reveal">Top Products</h3>
         <p class="text-center mb-5 px-3 reveal">
-            Koleksi produk terbaik kami yang akan membuat ruangan lebih inovatif
+        Kami memiliki suatu kebanggaan khusus untuk menghadirkan produk-produk yang tak hanya istimewa, tetapi juga memberi dampak positif bagi UMKM lokal.
         </p>
         @if($products->isEmpty())
         <div class="p-3 my-5 text-center text-bg-secondary rounded-full reveal">Tidak ada data produk!</div>

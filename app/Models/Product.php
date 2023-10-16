@@ -14,7 +14,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'slug', 'image', 'qty', 'price', 'discount', 'category_id', 'tag_id'];
+    protected $fillable = ['name', 'description', 'slug', 'image', 'qty', 'price', 'condition', 'discount', 'category_id', 'tag_id', 'seller_id', 'store_id'];
 
     public function order()
     {
@@ -39,5 +39,15 @@ class Product extends Model
     public function tag()
     {
         return $this->belongsTo(Tag::class);
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

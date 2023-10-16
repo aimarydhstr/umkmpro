@@ -7,22 +7,22 @@ a {
     text-decoration: none;
 }
 .text-primary {
-    color: #cf382d !important;
+    color: #2d7ecf !important;
 }
 .bg-primary {
-    background: #cf382d !important;
+    background: #2d7ecf !important;
 }
 .text-bg-primary {
-    background: #cf382d !important;
+    background: #2d7ecf !important;
     color: #ddd;
 }
 a:hover {
     transition: 0.5s all ease-in-out;
-    color: #cf382d;
+    color: #2d7ecf;
 }
 .nav-link:hover {
     transition: 0.5s all ease-in-out;
-    color: #cf382d !important;
+    color: #2d7ecf !important;
 }
 body {
     background: #fff;
@@ -38,7 +38,7 @@ h3 {
     font: 500 22px Outfit;
 }
 span {
-    color: #cf382d;
+    color: #2d7ecf;
 }
 img {
     object-fit: cover;
@@ -156,7 +156,7 @@ img {
     font-size: 15px;
 }
 .kategori:hover {
-    background: #cf382d !important;
+    background: #2d7ecf !important;
     --bs-bg-opacity: 1;
     color: #fff !important;
 }

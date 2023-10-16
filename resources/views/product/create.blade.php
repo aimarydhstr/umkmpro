@@ -7,7 +7,7 @@
     @include('components.sidenav')
 
     <main id="main"
-        class="fixed p-5 left-72 right-0 max-sm:-right-72 top-0 bottom-0 overflow-y-auto text-slate-700 dark:text-slate-200 transition-all duration-300">
+        class="fixed p-5 left-0 sm:left-72 right-0 top-0 bottom-0 overflow-y-auto overflow-x-hidden text-slate-700 dark:text-slate-200 transition-all duration-300">
 
         @include('components.pagetitle')
 
@@ -27,7 +27,7 @@
 
                         <div class="ml-5">
                             <h3 class="pt-4 pb-1 uppercase text-sm font-bold">Tambah Produk</h3>
-                            <p class="mb-6 text-sm">Tambah data produk Mebelicious</p>
+                            <p class="mb-6 text-sm">Tambah data produk</p>
                         </div>
                     </div>
 
@@ -81,35 +81,49 @@
                                 @endif
                             </div>
 
-                            <div class="pt-3">
-                                <label for="tag">Tag produk</label>
-                                <input list="tags" name="tag_id" id="tag" type="text"
-                                    class="p-3 focus:outline-none focus:ring focus:ring-violet-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600 border-slate-300"
-                                    placeholder="Ketik tag..." required autocomplete="off" value="{{ old('tag_id') }}">
+                            <div class="flex">
+                                <div class="pt-5 pr-5 basis-1/2">
+                                    <label for="tag">Tag produk</label>
+                                    <select id="tag" name="tag_id"
+                                        class="p-3 focus:outline-none focus:ring focus:ring-violet-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600 border-slate-300"
+                                        required>
+                                        <option selected disabled>Pilih tag</option>
+                                        @foreach($tags as $tag)
+                                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if($errors->has('tag_id'))
+                                    <div class="text-red-500">{{ $errors->first('tag_id') }}</div>
+                                    @endif
+                                </div>
+                                <div class="pt-5 pl-5 basis-1/2">
+                                    <label for="condition">Kondisi produk</label>
+                                    <select name="condition" id="condition"
+                                        class="p-3 focus:outline-none focus:ring focus:ring-violet-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600 border-slate-300"
+                                        required>
+                                        <option selected disabled>Pilih kondisi</option>
+                                        <option value="Baru">Baru</option>
+                                        <option value="Bekas">Bekas</option>
+                                    </select>
 
-                                <datalist id="tags">
-                                    @foreach($tags as $tag)
-                                    <option value="{{ $tag->name }}" />
-                                    @endforeach
-                                </datalist>
-                                @if($errors->has('tag_id'))
-                                <div class="text-red-500">{{ $errors->first('tag_id') }}</div>
-                                @endif
+                                    @if($errors->has('condition'))
+                                    <div class="text-red-500">{{ $errors->first('condition') }}</div>
+                                    @endif
+                                </div>
                             </div>
 
                             <div class="flex">
                                 <div class="pt-5 pr-5 basis-1/2">
                                     <label for="kategori">Kategori produk</label>
-                                    <input list="categories" name="category_id" id="kategori" type="text"
+                                    
+                                    <select id="kategori" name="category_id"
                                         class="p-3 focus:outline-none focus:ring focus:ring-violet-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600 border-slate-300"
-                                        placeholder="Ketik kategori..." required autocomplete="off"
-                                        value="{{ old('category_id') }}">
-
-                                    <datalist id="categories">
+                                        required>
+                                        <option selected disabled>Pilih kategori</option>
                                         @foreach($categories as $category)
-                                        <option value="{{ $category->name }}" />
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
-                                    </datalist>
+                                    </select>
                                     @if($errors->has('category_id'))
                                     <div class="text-red-500">{{ $errors->first('category_id') }}</div>
                                     @endif
@@ -172,5 +186,4 @@ $(document).ready(() => {
     })
 })
 </script>
-
 @endsection

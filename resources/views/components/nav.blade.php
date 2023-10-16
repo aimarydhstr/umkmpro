@@ -12,7 +12,7 @@
                 </a>
                 <header>
                     <h1>
-                        <a href="{{route('home')}}"><span>Me</span>be<span>lic</span>ious</a>
+                        <a href="{{route('home')}}"><span>U</span>M<span>K</span>M<span style="font-size: 28px;">Pro</span></a>
                     </h1>
                 </header>
             </div>

@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Tag;
 use App\Models\Category;
 use App\Models\Transaction;
+use App\Models\User;
 use App\Models\Coupon;
 use Auth;
 use Hash;

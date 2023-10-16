@@ -2,13 +2,12 @@
     <div class="container-lg">
         <div class="title d-flex position-relative align-items-center flex-wrap justify-content-between reveal">
             <div class="col-lg-2">
-                <h3>Top Categories</h3>
+                <h3>Kategori Terbaik untuk Anda</h3>
             </div>
             <p class="col-lg-6 col-12 mt-3">
-                Kami menyediakan banyak produk yang unik dan bervariasi yang bisa
-                dikostumisasi dengan kualitas tinggi
+            Kami telah mengelompokkan produk kami ke dalam kategori yang terorganisir dengan baik untuk memudahkan pengalaman berbelanja Anda. Temukan kategori favorit Anda dan temukan produk yang Anda sukai.
             </p>
-            <a href="{{route('shop')}}" class="icon px-3 mt-2 py-3 text-bg-danger rounded-lg">
+            <a href="{{route('shop')}}" class="icon px-3 mt-2 py-3 text-bg-primary rounded-lg">
                 Discover More
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="ms-1">
                     <path fill-rule="evenodd"

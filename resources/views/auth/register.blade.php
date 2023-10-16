@@ -2,106 +2,128 @@
 
 @section('content')
 
-<section id="login" class="flex items-center flex-col justify-center min-h-screen bg-red-500 text-slate-500 dark:text-slate-200">
-    <div class="shadow-xl flex justify-around items-center max-w-3xl w-full bg-white relative dark:bg-slate-800 rounded-2xl my-5">
-        <div class="block p-7" style="width: 100%!important">
-            <div class="border-b dark:border-slate-600 pb-5 block mb-3">
-                <div class="flex">
-                    <p class="font-medium text-slate-900 dark:text-white text-3xl pb-4 mr-1.5">Register Account</p>
-                </div>
-                <p>Lengkapi formulir di bawah ini untuk mendaftar akun baru</p>
-            </div>
+<div class="h-screen w-screen bg-gray-200 p-10">
+	<div class="flex h-full w-full bg-white rounded-3xl">
+		<div class="grid place-items-center w-full">
+			<div class="w-full text-center	p-5">
 
-            <form method="post" action="{{ route('register.post') }}" class="flex py-4 pb-7" enctype="multipart/form-data">
+				<h1 class="text-3xl font-bold">Register</h1>
+				<p class="text-xl">Buat Akun <span class="font-bold text-2xl text-blue-600">U<span class="text-black">M</span>K<span class="text-black">M</span>Pro</span>!</p> 
+
+				
+		<form method="post" action="{{ route('register.post') }}" class="mt-5 text-left" enctype="multipart/form-data">
             @csrf
-            <div class="grow">
-               <div>
+<div id="controls-carousel" class="relative w-full bg-gray-200 rounded-xl" data-carousel="static">
+    <div class="relative h-96 overflow-hidden rounded-lg ">
+       
+        <div class="hidden duration-700 ease-in-out px-4 py-2 grid grid-cols-2 gap-1 sm:gap-5 text-sm" data-carousel-item>
+            	<div class="col-span-2 sm:col-span-1">
                   <label for="name">Nama Lengkap</label>
-                  <input name="name" id="name" type="text" class="p-3 focus:outline-none focus:ring focus:ring-red-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600" placeholder="Nama Lengkap..." required autofocus value="{{ old('name') }}">
-                  @if($errors->has('name'))
-                      <div class="text-red-500">{{ $errors->first('name') }}</div>
-                  @endif
+                  <input name="name" id="name" type="text" class="p-3 focus:outline-none focus:ring focus:ring-blue-500 rounded-lg w-full border my-1.5" placeholder="Nama Lengkap..." required autofocus value="{{ old('name') }}">
+                  
                </div>
-               <div class="pt-3">
+               <div class="">
                   <label for="gender">Jenis Kelamin</label>
-                  <select name="gender" id="gender" class="p-3 focus:outline-none focus:ring focus:ring-red-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600" placeholder="Jenis Kelamin..." required value="{{ old('gender') }}">
+                  <select name="gender" id="gender" class="p-3 focus:outline-none focus:ring focus:ring-blue-500 rounded-lg w-full border my-1.5" placeholder="Jenis Kelamin..." required value="{{ old('gender') }}">
                       <option value="Laki-Laki">Laki-Laki</option>
                       <option value="Perempuan">Perempuan</option>
                   </select>
-                  @if($errors->has('gender'))
-                      <div class="text-red-500">{{ $errors->first('gender') }}</div>
-                  @endif
+                  
                </div>
-               <div class="pt-3">
+               <div class="">
                   <label for="email">Email</label>
-                  <input name="email" id="email" type="email" class="p-3 focus:outline-none focus:ring focus:ring-red-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600" placeholder="Email..." required value="{{ old('email') }}">
-                  @if($errors->has('email'))
-                      <div class="text-red-500">{{ $errors->first('email') }}</div>
-                  @endif
+                  <input name="email" id="email" type="email" class="p-3 focus:outline-none focus:ring focus:ring-blue-500 rounded-lg w-full border my-1.5 " placeholder="Email..." required value="{{ old('email') }}">
+                  
                </div>
-               <div class="pt-3">
+               <div class="col-span-2 sm:col-span-1">
                   <label for="username">Username</label>
-                  <input name="username" id="username" type="text" class="p-3 focus:outline-none focus:ring focus:ring-red-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600" placeholder="Username..." required value="{{ old('username') }}">
-                  @if($errors->has('username'))
-                      <div class="text-red-500">{{ $errors->first('username') }}</div>
-                  @endif
+                  <input name="username" id="username" type="text" class="p-3 focus:outline-none focus:ring focus:ring-blue-500 rounded-lg w-full border my-1.5 " placeholder="Username..." required value="{{ old('username') }}">
+                  
                </div>
-               <div class="pt-3">
+               <div class="">
                   <label for="password">Password</label>
-                  <input name="password" id="password" type="password" class="p-3 focus:outline-none focus:ring focus:ring-red-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600" placeholder="Password..." required autocomplete="off">
-                  @if($errors->has('password'))
-                      <div class="text-red-500">{{ $errors->first('password') }}</div>
-                  @endif
+                  <input name="password" id="password" type="password" class="p-3 focus:outline-none focus:ring focus:ring-blue-500 rounded-lg w-full border my-1.5 " placeholder="Password..." required autocomplete="off">
+                  
                </div>
-               <div class="pt-3">
+               <div class="">
                   <label for="password_confirmation">Ulangi Password</label>
-                  <input name="password_confirmation" id="password_confirmation" type="password" class="p-3 focus:outline-none focus:ring focus:ring-red-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600" placeholder="Ulangi Password..." required autocomplete="off">
-                  @if($errors->has('password_confirmation'))
-                      <div class="text-red-500">{{ $errors->first('password_confirmation') }}</div>
-                  @endif
+                  <input name="password_confirmation" id="password_confirmation" type="password" class="p-3 focus:outline-none focus:ring focus:ring-blue-500 rounded-lg w-full border my-1.5 " placeholder="Ulangi Password..." required autocomplete="off">
+                  
                </div>
-               <div class="pt-3">
-                  <label for="province">Provinsi</label>
-                  <input name="province" id="province" type="text" class="p-3 focus:outline-none focus:ring focus:ring-red-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600" placeholder="Provinsi..." required value="{{ old('province') }}">
-                  @if($errors->has('province'))
-                      <div class="text-red-500">{{ $errors->first('province') }}</div>
-                  @endif
-               </div>
-               <div class="pt-3">
-                  <label for="city">Kota</label>
-                  <input name="city" id="city" type="text" class="p-3 focus:outline-none focus:ring focus:ring-red-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600" placeholder="Kota..." required value="{{ old('city') }}">
-                  @if($errors->has('city'))
-                      <div class="text-red-500">{{ $errors->first('city') }}</div>
-                  @endif
-               </div>
-               <div class="pt-3">
-                  <label for="address">Alamat Rumah</label>
-                  <textarea name="address" id="address" class="p-3 focus:outline-none focus:ring focus:ring-red-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600" placeholder="Alamat Rumah..." required rows="4">{{ old('address') }}</textarea>
-                  @if($errors->has('address'))
-                      <div class="text-red-500">{{ $errors->first('address') }}</div>
-                  @endif
-               </div>
-               <div class="pt-3">
-                  <label for="postcode">Kode Pos</label>
-                  <input name="postcode" id="postcode" type="text" class="p-3 focus:outline-none focus:ring focus:ring-red-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600" placeholder="Kode Pos..." required value="{{ old('postcode') }}">
-                  @if($errors->has('postcode'))
-                      <div class="text-red-500">{{ $errors->first('postcode') }}</div>
-                  @endif
-               </div>
-               <div class="pt-3">
-                  <label for="phone">Nomor HP/WhatsApp</label>
-                  <input name="phone" id="phone" type="text" class="p-3 focus:outline-none focus:ring focus:ring-red-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600" placeholder="Nomor HP..." required value="{{ old('phone') }}">
-                  @if($errors->has('phone'))
-                      <div class="text-red-500">{{ $errors->first('phone') }}</div>
-                  @endif
-               </div>
-               <div class="pt-3">
-                  <button type="submit" class="p-3 w-full bg-red-500 hover:bg-red-700 active:bg-red-800 text-white uppercase font-bold rounded-lg text-sm mt-3 focus:outline-none focus:ring focus:ring-red-500">Submit</button>
-               </div>
-            </div>
-         </form>
-
         </div>
+
+        
+        <div class="hidden duration-700 ease-in-out px-4 py-2 grid grid-cols-2 gap-1 sm:gap-5 text-sm" data-carousel-item>
+            <div class="">
+                  <label for="province">Provinsi</label>
+                  <input name="province" id="province" type="text" class="p-3 focus:outline-none focus:ring focus:ring-blue-500 rounded-lg w-full border my-3 " placeholder="Provinsi..." required value="{{ old('province') }}">
+                  
+               </div>
+               <div class="">
+                  <label for="city">Kota</label>
+                  <input name="city" id="city" type="text" class="p-3 focus:outline-none focus:ring focus:ring-blue-500 rounded-lg w-full border my-3 " placeholder="Kota..." required value="{{ old('city') }}">
+                  
+               </div>
+               <div class="">
+                  <label for="postcode">Kode Pos</label>
+                  <input name="postcode" id="postcode" type="text" class="p-3 focus:outline-none focus:ring focus:ring-blue-500 rounded-lg w-full border my-3 " placeholder="Kode Pos..." required value="{{ old('postcode') }}">
+                  
+               </div>
+               <div class="">
+                  <label for="phone">Nomor HP/WhatsApp</label>
+                  <input name="phone" id="phone" type="text" class="p-3 focus:outline-none focus:ring focus:ring-blue-500 rounded-lg w-full border my-3 " placeholder="Nomor HP..." required value="{{ old('phone') }}">
+                  
+               </div>
+               <div class="col-span-2">
+                  <label for="address">Alamat Rumah</label>
+                  <textarea name="address" id="address" class="p-3 focus:outline-none focus:ring focus:ring-blue-500 rounded-lg w-full border my-3 " placeholder="Alamat Rumah..." required rows="4">{{ old('address') }}</textarea>
+                  
+               </div>
+        </div>
+        
+        <div class="hidden duration-700 ease-in-out grid place-items-center" data-carousel-item>
+            <div class="w-1/3">
+                  <button type="submit" class="p-3 w-full bg-blue-500 hover:bg-blue-700 active:bg-blue-800 text-white uppercase font-bold rounded-lg text-sm mt-3 focus:outline-none focus:ring focus:ring-blue-500">Buat Akun Sekarang</button>
+               </div>        
+        </div>
+        <!-- Item 4 -->
+        <div class="hidden duration-700 ease-in-out grid place-items-center" data-carousel-item="active">
+            <div class="w-1/2 text-center">
+                  <label for="gender" class="font-bold text-lg">Buat Akun Sebagai</label>
+                  <select name="gender" id="gender" class="p-3 focus:outline-none focus:ring focus:ring-blue-500 bg-blue-500 text-white rounded-lg w-full border my-1.5" placeholder="Jenis Kelamin..." required value="{{ old('gender') }}">
+                      <option value="Laki-Laki">Pembeli</option>
+                      <option value="Perempuan">Penjual</option>
+                  </select>
+                  
+               </div>
+        </div>
+        
     </div>
-</section>
+    <!-- Slider controls -->
+    <button type="button" class="absolute top-100 left-10 z-30 flex items-center justify-center  px-2 cursor-pointer group focus:outline-none border-2 border-blue-600 rounded-xl bg-blue-100 text-blue-800 font-bold" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+        Sebelumnya
+    </button>
+
+    <button type="button" class="absolute top-100 right-10 z-30 flex items-center justify-center  px-2 cursor-pointer group focus:outline-none border-2 border-blue-600 rounded-xl bg-blue-100 text-blue-800 font-bold" data-carousel-next>
+    	Berikutnya
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>
+         </form>
+			</div>
+		</div>
+	</div>
+</div>
+
 @endsection

@@ -4,7 +4,7 @@
             <a class="position-relative btn-nav mt-1 me-3" href="javascript::void(0)" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="menu-button"></span>
             </a>
-            <h1><a href="{{route('home')}}">{{ config('app.name') }}</a></h1>
+            <h1><a href="{{route('home')}}"><span>U</span>M<span>K</span>M<span style="font-size: 28px;">Pro</span></a></h1>
         </div>
         <div class="collapse navbar-collapse nav" id="nav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-between">
@@ -27,7 +27,7 @@
         </div>
         <div class="d-flex align-items-center">
             @if(!$auth)
-            <a href="{{ route('login') }}" class="l-btn text-bg-danger rounded-full">Login</a>
+            <a href="{{ route('login') }}" class="l-btn text-bg-primary rounded-full">Login</a>
             @else
             <div class="dropdown">
                 <a class="btn dropdown-toggle d-flex align-items-center mt-1" href="#" role="button" id="userDrop" data-bs-toggle="dropdown" aria-expanded="false">

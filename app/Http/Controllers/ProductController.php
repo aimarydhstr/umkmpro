@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\Store;
 use Illuminate\Http\Request;
 use Session;
 use Auth;
@@ -63,29 +64,7 @@ class ProductController extends Controller
             'category_id' => 'required',
         ]);
 
-        $cat = $request->category_id;
-        $category = Category::where('name', $cat)->first();
-
-        if (!$category) {
-            $slugCat = Str::slug($cat);
-            $category = Category::create([
-                'name' => $cat,
-                'slug' => $slugCat,
-                'icon' => 'tags.svg'
-            ]);
-        }
-
-        $tag = $request->tag_id;
-        $tags = Tag::where('name', $tag)->first();
-
-        if (!$tags) {
-            $slugtag = Str::slug($tag);
-            $tags = Tag::create([
-                'name' => $tag,
-                'slug' => $slugtag,
-                'image' => 'default.jpg'
-            ]);
-        }
+        $store = Store::where('seller_id', Auth::user()->id)->first();
 
         $slug = Str::slug($request->name);
 
@@ -96,19 +75,20 @@ class ProductController extends Controller
             $images = date('YmdHi') . $image->getClientOriginalName();
             $image->move(public_path('img/product'), $images);
         }
-
-        $slug = Str::slug($request->name);
-
         $product = Product::create([
             'name' => $request->name,
             'slug' => $slug,
             'image' => $images,
             'description' => $request->description,
+
             'qty' => $request->qty,
             'price' => $request->price,
             'discount' => $request->discount,
-            'category_id' => $category->id,
-            'tag_id' => $tags->id,
+            'condition' => $request->condition,
+            'category_id' => $request->category_id,
+            'tag_id' => $request->tag_id,
+            'seller_id' => Auth::user()->id,
+            'store_id' => $store->id,
         ]);
 
         if (!$product) {
@@ -158,30 +138,6 @@ class ProductController extends Controller
             'tag_id' => 'required'
         ]);
 
-        $cat = $request->category_id;
-        $category = Category::where('name', $cat)->first();
-
-        if (!$category) {
-            $slugCat = Str::slug($cat);
-            $category = Category::create([
-                'name' => $cat,
-                'slug' => $slugCat,
-                'icon' => 'tags.svg'
-            ]);
-        }
-
-        $tag = $request->tag_id;
-        $tags = Tag::where('name', $tag)->first();
-
-        if (!$tags) {
-            $slugtag = Str::slug($tag);
-            $tags = Tag::create([
-                'name' => $tag,
-                'slug' => $slugtag,
-                'image' => 'default.jpg'
-            ]);
-        }
-
         $product = Product::findOrFail($id);
 
         $images = $product->image;
@@ -202,8 +158,9 @@ class ProductController extends Controller
             'qty' => $request->qty,
             'price' => $request->price,
             'discount' => $request->discount,
-            'category_id' => $category->id,
-            'tag_id' => $tags->id,
+            'condition' => $request->condition,
+            'category_id' => $request->category_id,
+            'tag_id' => $request->tag_id,
         ]);
 
         if (!$product) {

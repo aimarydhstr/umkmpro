@@ -6,10 +6,10 @@
 
 <section id="hero" class="hero py-5 mt-2 fade-bottom">
     <div class="container-lg text-center d-flex flex-column align-items-center">
-        <h3 class="col-lg-6">Make Your Room Comfortable and Useful</h3>
+        <h3 class="col-lg-6">Jelajahi Berbagai Produk Unik dari UMKM Lokal</h3>
         <p class="col-lg-6 my-3 mb-4">
-            Dengan fokus didesain dan fungsionalnya, Mebelicious menyediakan
-            keseimbangan diantara kenyamanan dan keindahannya
+            Temukan keindahan dalam beragam kategori produk kami,
+            Kategori yang terorganisir rapi untuk pengalaman berbelanja yang lancar
         </p>
         <form class="bg-body-secondary rounded-full d-flex align-items-center col-lg-5 col-10 py-2 m-0 mt-3"
             role="search">
@@ -33,18 +33,16 @@
 
 @include('components.producthome')
 
-<section id="jasa" class="jasa py-5 text-bg-danger reveal">
+<section id="jasa" class="jasa py-5 text-bg-primary reveal">
     <div class="container-lg d-flex justify-content-between align-items-center">
         <div class="title">
-            <h3>Buat Produk Sesuai Keinginanmu</h3>
+            <h3>Pesan Sekarang, Dapatkan Lebih</h3>
             <p>
-                Apakah Anda pernah berpikir untuk memiliki produk yang dibuat sesuai
-                dengan keinginan dan kebutuhan Anda sendiri? Produk yang sepenuhnya
-                direkayasa untuk memenuhi preferensi dan keinginan Anda.
+                Beli sekarang dan nikmati pengiriman cepat dan pelayanan yang memuaskan, Kami hadir untuk memenuhi kebutuhan belanja online Anda.
             </p>
         </div>
         <div class="col-lg-3 d-flex justify-content-end">
-            <a href="https://wa.me/6282223542358" target="blank" class="p-3 px-4 rounded-full text-danger bg-white">Pesan Jasa</a>
+            <a href="{{route('shop')}}" target="blank" class="p-3 px-4 rounded-full text-primary bg-white">Belanja Sekarang</a>
         </div>
     </div>
 </section>

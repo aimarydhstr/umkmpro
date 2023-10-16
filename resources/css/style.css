@@ -10,26 +10,26 @@ a {
 }
 
 .text-primary {
-    color: #cf382d !important;
+    color: #2d7ecf !important;
 }
 
 .bg-primary {
-    background: #cf382d !important;
+    background: #2d7ecf !important;
 }
 
 .text-bg-primary {
-    background: #cf382d !important;
+    background: #2d7ecf !important;
     color: #ddd;
 }
 
 a:hover {
     transition: 0.5s all ease-in-out;
-    color: #cf382d;
+    color: #2d7ecf;
 }
 
 .nav-link:hover {
     transition: 0.5s all ease-in-out;
-    color: #cf382d !important;
+    color: #2d7ecf !important;
 }
 
 input:focus,
@@ -57,7 +57,7 @@ h3 {
 }
 
 span {
-    color: #cf382d;
+    color: #2d7ecf;
 }
 
 img {
@@ -81,7 +81,7 @@ img {
 .navbar a.icon:before {
     width: 17px;
     height: 17px;
-    background: #cf382d;
+    background: #2d7ecf;
     color: #fff;
     content: "0";
     font-size: 11px;
@@ -144,7 +144,7 @@ img {
 }
 
 .hero {
-    background: url("https://i.pinimg.com/originals/91/75/93/91759338c3d5f7fd8965f1e482f7dc9b.png")
+    background: url("/public/img/home/bgggg.png")
         no-repeat;
     background-size: contain;
     background-position: bottom;
@@ -414,7 +414,7 @@ img {
     box-shadow: 0 5px 12px 1px rgba(0, 0, 0, 0.15);
     width: 40px;
     height: 40px;
-    background: #cf382d !important;
+    background: #2d7ecf !important;
     border-radius: 100%;
     color: #fff !important;
 }

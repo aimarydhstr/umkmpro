@@ -3,7 +3,7 @@
 
 @include('components.nav')
 
-<section id="kategori" class="bg-danger mb-5 mt-lg-0 mt-5">
+<section id="kategori" class="bg-primary mb-5 mt-lg-0 mt-5">
     <div class="container-lg py-5 text-white text-center">
         <h3>Tag {{$tag->name}}</h3>
     </div>

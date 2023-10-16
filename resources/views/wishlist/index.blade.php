@@ -67,7 +67,7 @@
 
                                         <form action="{{ route('cart.addall') }}" method="post">
                                             @csrf
-                                            <button class="btn btn-danger" title="Tambahkan ke Keranjang"
+                                            <button class="btn btn-primary" title="Tambahkan ke Keranjang"
                                                 type="submit"><i class="fa fa-shopping-cart me-2"></i> Tambahkan
                                                 Semua</a>
                                         </form>

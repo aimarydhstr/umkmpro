@@ -1,8 +1,8 @@
-<aside class="w-72 fixed top-0 left-0 bottom-0 shadow-2xl transition-all duration-300" id="sidebar">
+<aside class="w-72 fixed top-0 -left-72 sm:left-0 bottom-0 shadow-2xl transition-all duration-300" id="sidebar">
     <div class="h-screen relative pt-6 bg-white pb-32 box-border overflow-hidden dark:bg-slate-700">
         <header class="flex justify-center mb-6 px-3">
             <h1 class="text-xl font-semibold whitespace-nowrap text-slate-600 dark:text-white"><a
-                    href="{{ route('dashboard') }}">Mebelicious</a></h1>
+                    href="{{ route('dashboard') }}">UMKMPro</a></h1>
         </header>
 
         <nav class="overflow-hidden hover:overflow-y-scroll h-full pb-3">
@@ -24,6 +24,8 @@
                         class="pt-5 pb-1 px-5 mt-3 border-t dark:border-slate-600 uppercase text-slate-400 text-xs font-semibold">
                         Manajemen Toko</p>
                 </li>
+
+                @if(Auth::user()->role_id == 1)
 
                 <li>
                     <a href="{{ route('category') }}"
@@ -55,25 +57,6 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="{{ route('product') }}"
-                        class="{{ Request::routeIs('product.*') || Request::routeIs('product') ? 'text-white bg-violet-500 rounded-lg dark:text-white hover:bg-violet-700 active:bg-violet-800' : 'text-slate-600 rounded-lg dark:text-slate-200 hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-slate-600 dark:active:bg-slate-500' }} flex items-center p-3 mx-2">
-                        <svg fill="currentColor" class="w-6 h-6" viewBox="-5.55 0 122.88 122.88" version="1.1"
-                            id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            style="enable-background:new 0 0 111.78 122.88" xml:space="preserve">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <g>
-                                    <path
-                                        d="M20.27,104.92c-1.86,0.9-4.09,0.12-4.98-1.74c-0.9-1.86-0.12-4.09,1.74-4.98c4.5-2.17,8.98-3.96,13.43-5.37 c4.48-1.42,8.99-2.46,13.53-3.12c2.31-0.34,4.62-0.57,6.93-0.71V85.3l-10.99-8.18c-0.4-0.53-0.69-1.13-0.86-1.76H21.68l0,0v-0.02 c-3.74,0-7.12-1.51-9.56-3.95c-2.44-2.44-3.95-5.82-3.95-9.56H8.15v0V45.47h-3.5h0v-0.02c-1.28,0-2.45-0.52-3.28-1.36 c-0.83-0.83-1.34-1.98-1.35-3.25L0,40.83v0h0.01v-3.82H0l0,0h0.01c0-1.29,0.52-2.45,1.36-3.28c0.83-0.83,1.98-1.34,3.25-1.35 l0.01-0.01h0h16.69h0v0.01c1.29,0,2.45,0.52,3.28,1.35v0.01c0.83,0.83,1.34,1.98,1.35,3.25l0.01,0.02v0h-0.01v3.82h0.01v0h-0.01 c0,1.29-0.52,2.46-1.35,3.28H24.6c-0.83,0.83-1.98,1.34-3.25,1.34l-0.02,0.02h0h-4.46v16.35v0h-0.02c0,1.3,0.55,2.5,1.43,3.39 c0.88,0.88,2.08,1.43,3.39,1.43v-0.02l0,0h2.86v-7.89c0-3.35,2.95-6.09,6.54-6.09H79.1c3.6,0,6.54,2.74,6.54,6.09v7.89h2.86h0v0.02 c1.3,0,2.51-0.55,3.39-1.43c0.88-0.88,1.43-2.09,1.43-3.39h-0.02v0V45.47h-2.86h0v-0.02c-1.28,0-2.44-0.52-3.28-1.36 c-0.83-0.83-1.34-1.98-1.35-3.25l-0.01-0.02v0h0.01v-3.82H85.8l0,0h0.01c0-1.29,0.53-2.45,1.36-3.28c0.83-0.83,1.98-1.34,3.25-1.35 l0.02-0.01h0h16.69h0v0.01c1.29,0,2.45,0.52,3.28,1.35v0.01c0.83,0.83,1.34,1.98,1.35,3.25l0.01,0.02v0h-0.01v3.82h0.01v0h-0.01 c0,1.28-0.52,2.45-1.36,3.28c-0.83,0.83-1.98,1.34-3.25,1.34l-0.01,0.02h0h-5.1v16.35v0h-0.02c0,3.74-1.51,7.12-3.95,9.56 c-2.44,2.44-5.82,3.95-9.56,3.95v0.02h0H71.56c-0.17,0.77-0.51,1.5-1,2.13l-10.92,7.45v4.05c3.02,0.16,6.03,0.5,9.05,1.02 c8.22,1.41,16.41,4.13,24.59,8.2c1.85,0.92,2.6,3.16,1.68,5.01c-0.92,1.85-3.16,2.6-5.01,1.68c-7.52-3.75-15.03-6.25-22.51-7.53 c-2.6-0.44-5.2-0.74-7.79-0.9v7.17c0,2.41-1.95,4.36-4.36,4.36c-2.41,0-4.36-1.95-4.36-4.36v-7.15c-1.96,0.12-3.92,0.33-5.88,0.61 c-4.08,0.59-8.2,1.55-12.33,2.86C28.54,101.28,24.39,102.93,20.27,104.92L20.27,104.92z M27.84,0h54.5c1.81,0,3.44,1.49,3.28,3.28 l-4.5,42.37c-0.19,1.79-1.48,3.28-3.28,3.28H32.56c-1.8,0-3.12-1.48-3.28-3.28L24.56,3.28C24.4,1.49,26.04,0,27.84,0L27.84,0z M50.22,75.36h10.15H50.22L50.22,75.36z M91.96,110.1c3.53,0,6.39,2.86,6.39,6.39c0,3.53-2.86,6.39-6.39,6.39 c-3.53,0-6.39-2.86-6.39-6.39C85.57,112.96,88.43,110.1,91.96,110.1L91.96,110.1z M55.48,110.1c3.53,0,6.39,2.86,6.39,6.39 c0,3.53-2.86,6.39-6.39,6.39s-6.39-2.86-6.39-6.39C49.09,112.96,51.95,110.1,55.48,110.1L55.48,110.1z M19,110.1 c3.53,0,6.39,2.86,6.39,6.39c0,3.53-2.86,6.39-6.39,6.39c-3.53,0-6.39-2.86-6.39-6.39C12.61,112.96,15.47,110.1,19,110.1L19,110.1z">
-                                    </path>
-                                </g>
-                            </g>
-                        </svg>
-                        <span class="ml-3">Produk</span>
-                    </a>
-                </li>
 
                 <li>
                     <a href="{{ route('tag') }}"
@@ -108,6 +91,30 @@
                     </a>
                 </li>
 
+                @endif
+
+                @if(Auth::user()->role_id == 3)
+                <li>
+                    <a href="{{ route('product') }}"
+                        class="{{ Request::routeIs('product.*') || Request::routeIs('product') ? 'text-white bg-violet-500 rounded-lg dark:text-white hover:bg-violet-700 active:bg-violet-800' : 'text-slate-600 rounded-lg dark:text-slate-200 hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-slate-600 dark:active:bg-slate-500' }} flex items-center p-3 mx-2">
+                        <svg fill="currentColor" class="w-6 h-6" viewBox="-5.55 0 122.88 122.88" version="1.1"
+                            id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            style="enable-background:new 0 0 111.78 122.88" xml:space="preserve">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g>
+                                    <path
+                                        d="M20.27,104.92c-1.86,0.9-4.09,0.12-4.98-1.74c-0.9-1.86-0.12-4.09,1.74-4.98c4.5-2.17,8.98-3.96,13.43-5.37 c4.48-1.42,8.99-2.46,13.53-3.12c2.31-0.34,4.62-0.57,6.93-0.71V85.3l-10.99-8.18c-0.4-0.53-0.69-1.13-0.86-1.76H21.68l0,0v-0.02 c-3.74,0-7.12-1.51-9.56-3.95c-2.44-2.44-3.95-5.82-3.95-9.56H8.15v0V45.47h-3.5h0v-0.02c-1.28,0-2.45-0.52-3.28-1.36 c-0.83-0.83-1.34-1.98-1.35-3.25L0,40.83v0h0.01v-3.82H0l0,0h0.01c0-1.29,0.52-2.45,1.36-3.28c0.83-0.83,1.98-1.34,3.25-1.35 l0.01-0.01h0h16.69h0v0.01c1.29,0,2.45,0.52,3.28,1.35v0.01c0.83,0.83,1.34,1.98,1.35,3.25l0.01,0.02v0h-0.01v3.82h0.01v0h-0.01 c0,1.29-0.52,2.46-1.35,3.28H24.6c-0.83,0.83-1.98,1.34-3.25,1.34l-0.02,0.02h0h-4.46v16.35v0h-0.02c0,1.3,0.55,2.5,1.43,3.39 c0.88,0.88,2.08,1.43,3.39,1.43v-0.02l0,0h2.86v-7.89c0-3.35,2.95-6.09,6.54-6.09H79.1c3.6,0,6.54,2.74,6.54,6.09v7.89h2.86h0v0.02 c1.3,0,2.51-0.55,3.39-1.43c0.88-0.88,1.43-2.09,1.43-3.39h-0.02v0V45.47h-2.86h0v-0.02c-1.28,0-2.44-0.52-3.28-1.36 c-0.83-0.83-1.34-1.98-1.35-3.25l-0.01-0.02v0h0.01v-3.82H85.8l0,0h0.01c0-1.29,0.53-2.45,1.36-3.28c0.83-0.83,1.98-1.34,3.25-1.35 l0.02-0.01h0h16.69h0v0.01c1.29,0,2.45,0.52,3.28,1.35v0.01c0.83,0.83,1.34,1.98,1.35,3.25l0.01,0.02v0h-0.01v3.82h0.01v0h-0.01 c0,1.28-0.52,2.45-1.36,3.28c-0.83,0.83-1.98,1.34-3.25,1.34l-0.01,0.02h0h-5.1v16.35v0h-0.02c0,3.74-1.51,7.12-3.95,9.56 c-2.44,2.44-5.82,3.95-9.56,3.95v0.02h0H71.56c-0.17,0.77-0.51,1.5-1,2.13l-10.92,7.45v4.05c3.02,0.16,6.03,0.5,9.05,1.02 c8.22,1.41,16.41,4.13,24.59,8.2c1.85,0.92,2.6,3.16,1.68,5.01c-0.92,1.85-3.16,2.6-5.01,1.68c-7.52-3.75-15.03-6.25-22.51-7.53 c-2.6-0.44-5.2-0.74-7.79-0.9v7.17c0,2.41-1.95,4.36-4.36,4.36c-2.41,0-4.36-1.95-4.36-4.36v-7.15c-1.96,0.12-3.92,0.33-5.88,0.61 c-4.08,0.59-8.2,1.55-12.33,2.86C28.54,101.28,24.39,102.93,20.27,104.92L20.27,104.92z M27.84,0h54.5c1.81,0,3.44,1.49,3.28,3.28 l-4.5,42.37c-0.19,1.79-1.48,3.28-3.28,3.28H32.56c-1.8,0-3.12-1.48-3.28-3.28L24.56,3.28C24.4,1.49,26.04,0,27.84,0L27.84,0z M50.22,75.36h10.15H50.22L50.22,75.36z M91.96,110.1c3.53,0,6.39,2.86,6.39,6.39c0,3.53-2.86,6.39-6.39,6.39 c-3.53,0-6.39-2.86-6.39-6.39C85.57,112.96,88.43,110.1,91.96,110.1L91.96,110.1z M55.48,110.1c3.53,0,6.39,2.86,6.39,6.39 c0,3.53-2.86,6.39-6.39,6.39s-6.39-2.86-6.39-6.39C49.09,112.96,51.95,110.1,55.48,110.1L55.48,110.1z M19,110.1 c3.53,0,6.39,2.86,6.39,6.39c0,3.53-2.86,6.39-6.39,6.39c-3.53,0-6.39-2.86-6.39-6.39C12.61,112.96,15.47,110.1,19,110.1L19,110.1z">
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                        <span class="ml-3">Produk</span>
+                    </a>
+                </li>
+                @endif
+
                 <li>
                     <p
                         class="pb-1 px-5 mt-3 border-t dark:border-slate-600 uppercase text-slate-400 text-xs font-semibold">
@@ -139,7 +146,7 @@
             </span>
             <p class="grow truncate overflow-hidden">
                 <span class="text-slate-100 text-sm block font-semibold">{{ $auth->name }}</span>
-                <span class="text-slate-300 text-xs block">{{ $auth->role->name }} Mebelicious</span>
+                <span class="text-slate-300 text-xs block">{{ $auth->role->name }}</span>
             </p>
             <button id="toggle" title="Aktifkan Dark Mode"
                 class="text-white bg-slate-200 bg-slate-500 hover:bg-slate-800 active:bg-slate-900 rounded-full text-sm p-2 focus:outline-none">
@@ -163,20 +170,38 @@
 $(document).ready(() => {
     $(document).on('click', '#navIcon', function(e) {
         e.preventDefault()
-        $('#sidebar').removeClass('left-0')
-        $('#sidebar').addClass('-left-72')
-        $('#main').removeClass('left-72')
-        $('#main').removeClass('max-sm:-right-72')
-        $('#main').addClass('left-0')
+        $('#sidebar').removeClass('sm:left-0')
+        $('#sidebar').removeClass('-left-72')
+        $('#sidebar').addClass('sm:-left-72')
+        $('#sidebar').addClass('left-0')
+
+        $('#main').removeClass('left-0')
+        $('#main').removeClass('sm:left-72')
+        $('#main').removeClass('right-72')
+        $('#main').removeClass('sm:right-0')
+
+        $('#main').addClass('left-72')
+        $('#main').addClass('-right-72')
+        $('#main').addClass('sm:left-0')
+        $('#main').addClass('sm:right-0')
         $(this).attr('id', 'navIconClose')
     })
     $(document).on('click', '#navIconClose', function(e) {
         e.preventDefault()
-        $('#sidebar').addClass('left-0')
-        $('#sidebar').removeClass('-left-72')
-        $('#main').addClass('left-72')
-        $('#main').addClass('max-sm:-right-72')
-        $('#main').removeClass('left-0')
+        $('#sidebar').addClass('sm:left-0')
+        $('#sidebar').addClass('-left-72')
+        $('#sidebar').removeClass('sm:-left-72')
+        $('#sidebar').removeClass('left-0')
+
+
+        $('#main').addClass('right-0')
+        $('#main').addClass('left-0')
+        $('#main').addClass('sm:left-72')
+
+        $('#main').removeClass('left-72')
+        $('#main').removeClass('-right-72')
+        $('#main').removeClass('sm:left-0')
+
         $(this).attr('id', 'navIcon')
     })
 })

@@ -13,6 +13,8 @@ class RoleCheck
 
         if ($request->user()->role_id == 1) return redirect()->route('dashboard');
 
+        if ($request->user()->role_id == 3) return redirect()->route('product');
+
         return redirect()->route('home');
     }
 }

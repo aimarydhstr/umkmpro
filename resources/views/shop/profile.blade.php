@@ -18,7 +18,7 @@
                                     <img src="{{asset('/img/user/'.$auth->photo)}}" alt="{{$auth->name}}" class="img-fluid img-thumbnail rounded-circle mt-4 mb-2" style="width: 150px; z-index: 1">
                                 </label>
                                 <input type="file" name="photo" id="photo">
-                                <label for="photo" class="btn btn-outline-danger" style="z-index: 1;">
+                                <label for="photo" class="btn btn-outline-primary" style="z-index: 1;">
                                     Ganti Foto
                                 </label>
                             </div>
@@ -75,17 +75,17 @@
                                 </div>
                                 <div class="form-group pt-4 col-12 col-md-6">
                                     <label for="province">Provinsi</label>
-                                    <input type="text" class="form-control rounded mt-3" name="province" id="province" value="{{$auth->province}}">
+                                    <input type="text" class="form-control rounded mt-3" name="province" id="province" value="{{$auth->province->name}}">
                                 </div>
                             </div>
                             <div class="row justify-content-between">
                                 <div class="form-group pt-4 col-12 col-md-6">
-                                    <label for="email">Kota</label>
-                                    <input type="text" class="form-control rounded mt-3" name="email" id="email" value="{{$auth->email}}">
+                                    <label for="city">Kota</label>
+                                    <input type="text" class="form-control rounded mt-3" name="city" id="city" value="{{$auth->city->name}}">
                                 </div>
                                 <div class="form-group pt-4 col-12 col-md-6">
-                                    <label for="alamat">Alamat</label>
-                                    <textarea rows="3" class="form-control rounded mt-3" name="alamat" id="alamat">{{$auth->address}}</textarea>
+                                    <label for="address">Alamat</label>
+                                    <textarea rows="3" class="form-control rounded mt-3" name="address" id="address">{{$auth->address}}</textarea>
                                 </div>
                             </div>
                             <div class="row justify-content-between">
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                             <div class="form-group pt-4 pb-3 text-end">
-                                <button class="btn btn-danger px-4" type="submit">Simpan</button>
+                                <button class="btn btn-primary px-4" type="submit">Simpan</button>
                             </div>
                     </form>
                 </div>

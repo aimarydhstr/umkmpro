@@ -77,8 +77,19 @@ class AuthController extends Controller
             return redirect()->back();
         }
 
+        $data = [
+            'username' => $request->username,
+            'password' => $request->password,
+            'is_active' => 1
+        ];
+
+        if (!Auth::attempt($data)) {
+            Session::flash('failed', 'Username atau password salah!');
+            return redirect()->back();
+        }
+
         Session::flash('success', 'Akun berhasil diregistrasi!');
-        return redirect()->route('login');
+        return redirect()->route('login'); //ubah ini
     }
 
     public function logout(Request $request)

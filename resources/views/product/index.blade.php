@@ -17,7 +17,7 @@
                     class="bg-white dark:bg-slate-700 shadow-xl p-3 pb-7 rounded-xl relative overflow-hidden box-border">
                     <div class="relative">
                         <h3 class="p-4 pb-3 uppercase text-sm font-bold">Daftar Product</h3>
-                        <p class="mb-6 text-sm px-4">Daftar product pada mebelicious</p>
+                        <p class="mb-6 text-sm px-4">Daftar product pada {{$user->}}</p>
 
                         <a href="{{ route('product.create') }}"
                             class="bg-violet-500 text-white px-4 py-2 rounded-lg shadow-lg text-xs absolute top-6 right-4 hover:bg-violet-600 active:bg-violet-700">Tambah

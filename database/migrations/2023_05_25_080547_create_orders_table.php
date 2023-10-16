@@ -16,13 +16,15 @@ return new class extends Migration
             $table->bigInteger('transaction_id')->unsigned()->index()->nullable();
             $table->bigInteger('user_id')->unsigned()->index()->nullable();
             $table->bigInteger('product_id')->unsigned()->index()->nullable();
+            $table->bigInteger('seller_id')->unsigned()->index()->nullable();
             $table->integer('qty');
             $table->integer('price');
             $table->timestamps();
-            
+
             $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('seller_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -68,30 +68,49 @@
                                 @endif
                             </div>
 
-                            <div class="pt-3">
-                                <label for="tag">Tag produk</label>
-                                <input list="tags" name="tag_id" id="tag" type="text" class="p-3 focus:outline-none focus:ring focus:ring-violet-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600 border-slate-300" placeholder="Ketik tag..." required autocomplete="off" value="{{ $product->tag->name }}">
+                            <div class="flex">
+                                <div class="pt-5 pr-5 basis-1/2">
+                                    <label for="tag">Tag produk</label>
+                                    <select id="tag" name="tag_id"
+                                        class="p-3 focus:outline-none focus:ring focus:ring-violet-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600 border-slate-300"
+                                        required>
+                                        <option selected disabled>Pilih tag</option>
+                                        @foreach($tags as $tag)
+                                        <option value="{{ $tag->id }}" {{ $tag->id == $product->tag_id ? 'selected' : '' }}>{{ $tag->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if($errors->has('tag_id'))
+                                    <div class="text-red-500">{{ $errors->first('tag_id') }}</div>
+                                    @endif
+                                </div>
+                                <div class="pt-5 pl-5 basis-1/2">
+                                    <label for="condition">Kondisi produk</label>
+                                    <select name="condition" id="condition"
+                                        class="p-3 focus:outline-none focus:ring focus:ring-violet-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600 border-slate-300"
+                                        required autocomplete="off" value="{{ old('condition') }}">
+                                        <option selected disabled>Pilih kondisi</option>
+                                        <option value="Baru" {{ $product->condition == 'Baru' ? 'selected' : '' }}>Baru</option>
+                                        <option value="Bekas" {{ $product->condition == 'Bekas' ? 'selected' : '' }}>Bekas</option>
+                                    </select>
 
-                                <datalist id="tags">
-                                    @foreach($tags as $tag)
-                                    <option value="{{ $tag->name }}" />
-                                    @endforeach
-                                </datalist>
-                                @if($errors->has('tag_id'))
-                                <div class="text-red-500">{{ $errors->first('tag_id') }}</div>
-                                @endif
+                                    @if($errors->has('condition'))
+                                    <div class="text-red-500">{{ $errors->first('condition') }}</div>
+                                    @endif
+                                </div>
                             </div>
 
                             <div class="flex">
                                 <div class="pt-5 pr-5 basis-1/2">
                                     <label for="kategori">Kategori produk</label>
-                                    <input list="categories" name="category_id" id="kategori" type="text" class="p-3 focus:outline-none focus:ring focus:ring-violet-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600 border-slate-300" placeholder="Ketik kategori..." required autocomplete="off" value="{{ $product->category->name }}">
 
-                                    <datalist id="categories">
+                                    <select id="kategori" name="category_id"
+                                        class="p-3 focus:outline-none focus:ring focus:ring-violet-500 rounded-lg w-full border my-3 dark:bg-slate-700 dark:border-slate-600 border-slate-300"
+                                        required>
+                                        <option selected disabled>Pilih kategori</option>
                                         @foreach($categories as $category)
-                                        <option value="{{ $category->name }}" />
+                                        <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
                                         @endforeach
-                                    </datalist>
+                                    </select>
                                     @if($errors->has('category_id'))
                                     <div class="text-red-500">{{ $errors->first('category_id') }}</div>
                                     @endif

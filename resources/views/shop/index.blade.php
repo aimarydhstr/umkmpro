@@ -36,7 +36,7 @@
                             Juta Rupiah
                         </h3>
                         <p class="mb-4 text-white">
-                            Promo ini berlangsung hanya sampai dengan 30 April 2023
+                            Promo ini berlangsung hanya sampai dengan 30 November 2023
                         </p>
                     </div>
                 </div>

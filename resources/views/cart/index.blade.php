@@ -106,7 +106,7 @@
                                     </div>
                                     <div class="justify-content-center d-flex mt-5">
                                         
-                                        <button type="button" class="px-4 border-0 py-3 d-flex align-items-center me-2 text-bg-danger rounded"
+                                        <button type="button" class="px-4 border-0 py-3 d-flex align-items-center me-2 text-bg-primary rounded"
                                                 style="font-size: 14px" data-bs-toggle="modal" data-bs-target="#bayar">
                                                 Bayar Sekarang
                                             <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
@@ -155,7 +155,7 @@
                 <label class="form-label text-white m-1 p-0" for="pay_image" style="cursor:pointer">Choose file</label>
                 <input id="pay_image" type="file" name="pay_image" required class="form-control d-none" onchange="loadFile(event);"/>
                 @error('pay_image')
-                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    <div class="alert alert-primary mt-2">{{ $message }}</div>
                 @enderror
             </div>
         </div>
@@ -168,7 +168,7 @@
 
         </div>
         <div class="modal-footer">
-            <button type="submit" class="px-3 border-0 d-flex align-items-center me-2 text-bg-danger rounded"
+            <button type="submit" class="px-3 border-0 d-flex align-items-center me-2 text-bg-primary rounded"
                     style="font-size: 14px;padding: 12px;" data-bs-toggle="modal" data-bs-target="#bayar">
                     Bayar Sekarang
                 <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
